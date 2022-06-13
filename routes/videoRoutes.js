@@ -5,6 +5,7 @@ const videos = require('../data/videos.json')
 const videoDetails = require('../data/videoDetails.json');
 const uuid = require("uuid")
 
+
 const jsonFile = './data/videoDetails.json'
 
 function getVideos () {
@@ -26,10 +27,10 @@ router.post("/", (req, res) => {
     const newVideo = {
       id: uuid.v4(),
       title: title,
-      channel: "Philip Rudz",
-      image: "https://i.imgur.com/i6S8m7I.jpg",
+      channel: "The Best",
+      image: "https://i.imgur.com/5qyCZrD.jpg",
       description: description,
-      views: "13,092,284",
+      views: "741 000",
       likes: "175,985",
       duration: "4:20",
       video: "https://project-2-api.herokuapp.com/stream",
@@ -70,9 +71,7 @@ router.get("/", function (req, res) {
     res.send(getVideos());
 });
 
-router.get("/:id",(req, res ) => {
-    // req.params.id = get id
-    // match to the video 
+router.get("/:id",(req, res ) => { 
     let myVideos = getVideos();
     let video = myVideos.find((videoItem) => {
       return req.params.id === videoItem.id
